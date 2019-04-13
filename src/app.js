@@ -45,9 +45,13 @@ app.set("view engine","hbs");
 
 const port = process.env.PORT || 3000;
 
+// 
+
+process.env.URLDB = "mongodb://localhost:27017/Proyecto";
+
 // Conexion a la base de datos
 
-mongoose.connect('mongodb://localhost:27017/Proyecto', {useNewUrlParser: true}, (err, resultado) =>{
+mongoose.connect(process.env.URLDB, {useNewUrlParser: true}, (err, resultado) =>{
     if (err){
         return console.log("Hubo un error al cargar la base de datos");
     }
