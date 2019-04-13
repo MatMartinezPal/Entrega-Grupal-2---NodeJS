@@ -41,15 +41,7 @@ hbs.registerPartials(directorioPartials);
 
 app.set("view engine","hbs");
 
-// Puerto
-
-const port = process.env.PORT || 3000;
-
-// 
-
-process.env.URLDB = "mongodb://localhost:27017/Proyecto";
-
-// Conexion a la base de datos
+require("./config");
 
 mongoose.connect(process.env.URLDB, {useNewUrlParser: true}, (err, resultado) =>{
     if (err){
@@ -568,6 +560,6 @@ app.post("/verInscritos", (req,res) => {
 
 
 // Para escuchar el puerto 3000 y que nuestro aplicativo se ejecute en la web.
-app.listen(port, () =>{
-    console.log("Servidor en el puerto " + port);
+app.listen(process.env.PORT, () =>{
+    console.log("Servidor en el puerto " + process.env.PORT);
 });
