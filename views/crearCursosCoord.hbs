@@ -1,0 +1,20 @@
+{{>headerCoord}}
+
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Nuevo curso</h1><br>
+    <form action="/crearCursos" method="POST">
+        Id curso<br><input type="number" name="id" required="required"><br><br>
+        Nombre<br><input type="text" name="nombre" required="required"><br><br>
+        Descripcion<br><input type="text" name="descripcion" required="required"><br><br>
+        Costo<br><input type="text" name="costo" required="required"><br><br>
+        Modalidad<br><select name="modalidad" class="selectors">
+            <option selected="selected" value="">---</option>
+            <option value="presencial">Presencial</option>
+            <option value="virtual">Virtual</option>
+        </select><br><br>
+        Duración<br><input type="text" name="duracion"><br><br>
+        <button>Crear</button>
+    </form>
+</div>
+
+{{>footer}}

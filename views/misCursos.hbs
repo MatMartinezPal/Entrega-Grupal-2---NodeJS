@@ -1,0 +1,30 @@
+{{>headerEstudiantes}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Mis cursos</h1><br>
+    {{#if misCursos}}
+    <table id = "tabla_cursos">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Acción</th>
+        </tr>
+    {{#each misCursos}}
+        <tr>
+            <td>{{nombre_curso}}</td>
+            <td>{{descripcion_curso}}</td>
+            <td>{{valor_curso}}</td>
+            <form action="/eliminarRelacion" method="GET">
+                <input type ="hidden" name="id" value="{{id_curso}}"/>
+                <input type ="hidden" name="estudiante_id" value="{{../est.cedula}}"/>
+                <td><button id="boton_inscripcion">Eliminar</button></td>
+            </form>
+        </tr>
+    {{/each}}
+    </table>
+    {{else}}
+        <h2 id= "registro_est">Usted no tiene cursos inscritos</h2><br>    
+    {{/if}}
+</div>
+
+{{>footer}}

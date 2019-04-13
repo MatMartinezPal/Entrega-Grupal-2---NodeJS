@@ -1,0 +1,36 @@
+{{>headerEstudiantes}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Información detallada</h1><br>
+    <table id= "tabla_ver_mas">
+        <tr>
+            <th>Id</th>    
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Valor</th>
+            {{#if curso.modalidad}}
+                <th>Modalidad</th>
+            {{/if}}
+            {{#if curso.intensidad}}
+                <th>Intensidad</th>
+            {{/if}}
+        </tr>
+        <tr>
+            <td> {{curso.id}}</td>
+            <td>{{curso.nombre}}</td>
+            <td>{{curso.descripcion}}</td>
+            <td>{{curso.costo}}</td>
+            {{#if curso.modalidad}}
+                <td>{{curso.modalidad}}</td>
+            {{/if}}
+            {{#if curso.intensidad}}
+                <td>{{curso.intensidad}}</td>
+            {{/if}}
+        </tr>
+        
+    </table>
+    <form action="/cursos">
+        <br><button id="volverAtras">Volver atras</button>
+    </form>
+</div>
+
+{{>footer}}

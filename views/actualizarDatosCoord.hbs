@@ -1,0 +1,31 @@
+{{>headerCoord}}
+
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Estudiantes</h1><br>
+    <table id = "tabla_cursos">
+        <tr>
+            <th>Cedula</th>    
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Acción</th>
+        </tr>
+    {{#each estudiantes}}
+        <tr>
+            <td>{{cedula}}</td>
+            <td>{{nombre}}</td>
+            <td>{{telefono}}</td>
+            <td>{{correo}}</td>
+            <td>{{rol}}</td>
+            <form action="/modificarDatos" method="POST">
+                <input type ="hidden" name="nombre" value="{{nombre}}"/>
+                <input type ="hidden" name="cedula" value="{{cedula}}"/>
+                <td><button id="boton_inscripcion">Actualizar</button></td>
+            </form>
+        </tr>
+    {{/each}}
+    </table>
+</div>
+
+{{>footer}}

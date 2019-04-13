@@ -1,0 +1,13 @@
+{{>header}}
+<div id= "formulario_registro">
+    <h1  id= "registro_est">Registro de estudiantes</h1><br>
+    <form action="/cursos" method="POST">
+        Documento de identidad<br><input type="number" name="id" required="required"><br><br>
+        Nombre<br><input type="text" name="nombre" required="required"><br><br>
+        Correo electronico<br><input type="text" name="correo" required="required"><br><br>
+        Telefono<br><input type="text" name="telefono" required="required"><br><br>
+        Contraseña<br><input type="password" name="password" required="required"><br><br>
+        <button>Registrar</button>
+    </form>
+</div>
+{{>footer}}

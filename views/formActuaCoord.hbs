@@ -1,0 +1,22 @@
+{{>headerCoord}}
+
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Actualizar datos</h1><br>
+    <h2 id= "registro_est">Usuario -- {{nombre}}</h2><br><br>
+
+    <form action="/actualizarAlumno" method="POST">
+
+        <input type="hidden" name="cedula" value={{cedula}}>
+        Nombre<br><input type="text" name="nombre" required="required"><br><br>
+        Correo<br><input type="text" name="correo" required="required"><br><br>
+        Rol<br><select name="rol" class="selectors">
+            <option value="aspirante">Estudiante</option>
+            <option value="docente">Docente</option>
+            <option value="coordinador">Coordinador</option>
+        </select><br><br>
+
+        <button>Guardar</button>
+    </form>
+</div>
+
+{{>footer}}

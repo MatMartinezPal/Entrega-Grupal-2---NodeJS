@@ -1,0 +1,16 @@
+{{>header}}
+<div id = "formulario_login">
+    <p class="texto_login">
+        Bienvenido a la pagina
+    </p>
+      
+    <h1 id="registro_est">Login</h1><br>
+    <form action="/login" method="POST">
+        Documento de identidad<br><input type="number" name="cedula_log" required="required"><br><br>
+        Contraseña<br><input type="password" name="pass_log" required="required"><br><br>
+        <button>Login</button>
+    </form>
+    <br>
+    <p class="texto_login">¿No tiene cuenta? <a href="/registro">¡Registrese aquí!</a></p>
+</div>
+{{>footer}}

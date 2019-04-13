@@ -1,0 +1,33 @@
+{{>headerDoce}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Cursos</h1><br>
+    {{#if cursos}}
+        <table id = "tabla_cursos">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Costo</th>
+                <th>Inscritos</th>
+            </tr>
+        {{#each cursos}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombre}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{costo}}</td>
+                <td>
+                    <form action="/verInscritos" method="POST">
+                    <input type ="hidden" name="id" value="{{id}}"/>
+                    <input type ="hidden" name="nombre_curso" value="{{nombre}}"/>
+                    <button id="boton_inscripcion">Ver inscritos</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </table>
+    {{else}}
+        <h2 id= "registro_est">Lo sentimos, en el momento no tiene cursos asignados</h2>
+    {{/if}}
+</div>
+{{>footer}}

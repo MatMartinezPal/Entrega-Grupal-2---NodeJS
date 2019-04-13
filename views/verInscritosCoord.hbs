@@ -1,0 +1,33 @@
+{{>headerCoord}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Estudiantes inscritos</h1><br>
+    {{#if inscritos}}
+        <h2 id= "registro_est">Curso: {{curso}}<br>Id: {{id_cur}}</h1><br>
+        <table id = "tabla_cursos">
+            <tr>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Acción</th>
+            </tr>
+        {{#each inscritos}}
+            <tr>
+                <td>{{cedula}}</td>
+                <td>{{nombre}}</td>
+                <td>{{correo}}</td>
+                <td>{{telefono}}</td>
+                <form action="/eliminarInscripcion" method="GET">
+                    <input type ="hidden" name="id" value="{{cedula}}"/>
+                    <input type ="hidden" name="id_curso" value="{{../id_cur}}"/>
+                    <input type ="hidden" name="nombre_curso" value="{{../curso}}"/>
+                    <td><button id="boton_inscripcion">Eliminar</button></td>
+                </form>
+            </tr>
+        {{/each}}
+        </table>
+    {{else}}
+        <h2 id= "registro_est">No hay estudiantes inscritos en el curso: {{curso}}</h1><br>    
+    {{/if}}
+</div>
+{{>footer}}

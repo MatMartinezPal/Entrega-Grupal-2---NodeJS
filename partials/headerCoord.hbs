@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Entregable 2</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <div class="header_buttons">
+                {{#if est}}
+                    <h2 style="margin-top: 8px;">{{est.nombre}} -- {{est.rol}}</h2>
+                {{/if}}
+                <a href="/crearCursos"><button>Crear cursos</button></a>
+                <a href="/estudiantesSistema"><button>Estudiantes</button></a>
+                <a href="/administrarCursos"><button>Administrar cursos</button></a>
+                <a href="/salir"><button>Salir</button></a>
+            </div>
+        </header>

@@ -1,0 +1,31 @@
+{{>header}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Cursos</h1><br>
+    {{#if cursos_disponibles}}
+        <h2 id= "registro_est">Si se desea inscribir en un curso se debe registrar</h2>
+        <table id = "tabla_cursos">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Costo</th>
+                <th>Estado</th>
+                <th>Info</th>
+            </tr>
+        {{#each cursos_disponibles}}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{costo}}</td>
+                <td>{{estado}}</td>
+                <form action="/verMasInter" method="GET">
+                    <input type ="hidden" name="id" value="{{id}}"/>
+                    <td><button id="boton_inscripcion">Ver mas</button></td>
+                </form>
+            </tr>
+        {{/each}}
+        </table>
+    {{else}}
+        <h2 id= "registro_est">Lo sentimos, en el momento no hay cursos disponibles</h2>
+    {{/if}}
+</div>
+{{>footer}}

@@ -1,0 +1,59 @@
+{{>headerCoord}}
+<div id= "formulario_registro">
+    <h1 id= "registro_est">Cursos</h1><br>
+    {{#if cursos}}
+        <table id = "tabla_cursos">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Costo</th>
+                <th>Modalidad</th>
+                <th>Intensidad</th>
+                <th>Inscritos</th>
+                <th>Disponibilidad/<br>Encargado</th>
+            </tr>
+        {{#each cursos}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombre}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{costo}}</td>
+                {{#if modalidad}}
+                    <td>{{modalidad}}</td>
+                {{else}}
+                    <td>---</td>
+                {{/if}}
+                {{#if intensidad}}
+                    <td>{{intensidad}}</td>
+                {{else}}
+                    <td>---</td>
+                {{/if}}
+                <td><form action="/verInscritos" method="POST">
+                    <input type ="hidden" name="id" value="{{id}}"/>
+                    <input type ="hidden" name="nombre_curso" value="{{nombre}}"/>
+                    <button id="boton_inscripcion">Ver inscritos</button>
+                </form></td>
+                {{#ifcompararEstado estado}}
+                    <td>Curso cerrado</td>
+                {{else}}
+                    <td>
+                        <form action="/cerrarCurso" method="GET">
+                            <input type ="hidden" name="id" value="{{id}}"/>
+                            <button id="boton_inscripcion">Cerrar</button><br><br>
+                            <select name="encargado" class="selectors" required>
+                            {{#each ../encargados}}
+                                <option value="{{cedula}}">{{nombre}}</option>
+                            {{/each}}
+                            </select>
+                        </form>
+                    </td>
+                {{/ifcompararEstado}}
+            </tr>
+        {{/each}}
+        </table>
+    {{else}}
+        <h2 id= "registro_est">No hay cursos en el sistema</h2><br>
+    {{/if}}
+</div>
+{{>footer}}
