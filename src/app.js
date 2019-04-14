@@ -41,14 +41,7 @@ hbs.registerPartials(directorioPartials);
 
 app.set("view engine","hbs");
 
-require("./config");
-
-mongoose.connect(process.env.URLDB, {useNewUrlParser: true}, (err, resultado) =>{
-    if (err){
-        return console.log("Hubo un error al cargar la base de datos");
-    }
-    console.log("Conexion satisfactoria");
-});
+require("./config.js");
 
 
 // METODOS GET:
@@ -558,6 +551,14 @@ app.post("/verInscritos", (req,res) => {
     });
 });
 
+// Conexion con la base de datos
+
+mongoose.connect(process.env.URLDB, {useNewUrlParser: true}, (err, resultado) =>{
+    if (err){
+        return console.log("Hubo un error al cargar la base de datos");
+    }
+    console.log("Conexion satisfactoria");
+});
 
 // Para escuchar el puerto 3000 y que nuestro aplicativo se ejecute en la web.
 app.listen(process.env.PORT, () =>{
